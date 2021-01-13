@@ -3,14 +3,13 @@
 
 
 %% 			
-[ \t]+   {fprintf(yyout, "");} 
-"//".*\n {};			
-"/*"[^*/]*"*/"\n  {};		
+[ \t]+   		    ;
+"//".*\n 			;			
+"/*"[^*/]*"*/"\n    ;	
 %% 
 
 int yywrap(){} //End of processing of Input 
 
-// driver code 
 int main() 
 { 
 
@@ -21,7 +20,7 @@ int main()
 	yyin = fopen("input.c", "r"); 
 
 	// yyout points to the file output.c and opens it in write mode
-	yyout = fopen("Output.c", "w"); 
+	yyout = fopen("output.c", "w"); 
 
 	yylex(); // main of lex
 	return 0; 
